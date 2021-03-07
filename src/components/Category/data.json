@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Persiapan Karir",
+    "image": "/images/Category1.png",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 2,
+    "title": "Pemrograman",
+    "image": "/images/Category2.png",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 3,
+    "title": "Seni Musik",
+    "image": "/images/Category3.png",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 4,
+    "title": "Memasak",
+    "image": "/images/Category4.png",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+]
