@@ -15,30 +15,58 @@ import {
   FormInputBox,
   FormInputButton,
 } from "./RegisterMenteeStyle";
+import Mentoree from "../../../api/Mentoree";
+import { useAuth } from "../../../config/Auth";
+import { Redirect } from "react-router-dom";
+import jwt from "jsonwebtoken";
 
 const RegisterMentee = () => {
+  const { setAuthTokens, authTokens } = useAuth();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  // const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("====================================");
     console.log(email);
     console.log(password);
-    console.log("====================================");
-    const token = await fetch("", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        name: name,
-      }), // body data type must match "Content-Type" header
-    }).then((res) => res.json());
-    console.log(token);
+
+    // Axios Start
+    const res = await Mentoree.post("/user/register", {
+      email: email,
+      name: name,
+      password: password,
+      confirmPassword: confirmPassword,
+    });
+    console.log(res);
+    await Mentoree.post("/user/login", {
+      email: email,
+      password: password,
+    }).then(async (res) => {
+      console.log(res);
+      res.status === 200 && setAuthTokens(await jwt.decode(res.data.token));
+      if (res.status == 200) {
+        console.log("Login Berhasil");
+        window.location.href = "/";
+      }
+    });
+    // Axios End
+
+    // Fetch Start
+    // setMentor(res.data.mentor);
+    // const token = await fetch("", {
+    //   method: "POST", // *GET, POST, PUT, DELETE, etc.
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     email: email,
+    //     password: password,
+    //     name: name,
+    //   }), // body data type must match "Content-Type" header
+    // }).then((res) => res.json());
+    // console.log(token);
+    // Fetch End
   };
   return (
     <div>
@@ -92,8 +120,8 @@ const RegisterMentee = () => {
                 <FormInputBox
                   type="password"
                   name="password2"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </FormInputs>
               <FormInputButton onClick={(e) => onSubmit(e)}>

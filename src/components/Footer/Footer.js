@@ -1,22 +1,15 @@
 import React from "react";
 import { Container, Wrapper, Row, Column, Link, Title } from "./FooterStyle";
 import { Icon } from "../../assets/Icons/IconStyle";
-import Logo from "../../assets/Logo/Logo.png";
-// import { ReactComponent as Logo } from "../../assets/Logo/Logo.svg";
+import Logo from "../../assets/Logo/mentoree.png";
 
 const Footer = () => {
-  const logoStyle = {
-    marginTop: "-10px",
-  };
   return (
     <Container>
       <Wrapper>
         <Row>
           <Column>
-            <Title>
-              {/* <Logo style={{ marginTop: 0 }} /> */}
-              <img src={Logo} alt="Logo" style={logoStyle} />
-            </Title>
+            <img src={Logo} alt="Logo" style={{ marginTop: "-10px" }} />
           </Column>
           <Column>
             <Title>Tentang Kami</Title>

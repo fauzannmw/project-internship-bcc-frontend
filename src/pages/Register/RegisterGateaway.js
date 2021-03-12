@@ -37,7 +37,7 @@ const LoginGateaway = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="d-flex justify-content-center">
+            <Col className=" justify-content-center">
               <Card
                 className="text-center"
                 style={{

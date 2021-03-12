@@ -1,35 +1,36 @@
 import React from "react";
-import {
-  Container,
-  ImageContainer,
-  Images,
-  Title,
-  Subtitle,
-  Text,
-} from "./HeroStyle";
-import { ReactComponent as Gambar } from "../../assets/Logo/illustration.svg";
+import { Container, Row, Col } from "react-bootstrap";
+import { StyledImage, Title, Subtitle, Text } from "./HeroStyle";
+import Gambar from "../../assets/Hero Ilustration/illustration_1.svg";
 
-const Hero = () => {
+const Reason = () => {
   return (
-    <>
-      <Container>
-        <Text>
-          <Title>Find the skillful mentor in your area!</Title>
-          <Subtitle>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </Subtitle>
-        </Text>
-        <ImageContainer>
-          <Images>
-            <Gambar />
-          </Images>
-        </ImageContainer>
+    <div>
+      <Container
+        style={{
+          paddingTop: "50px",
+          paddingBottom: "50px",
+          margin: "0 auto",
+          background: "#ecf0f1",
+        }}
+        fluid
+      >
+        <Row style={{ display: "flex", justifyContent: "space-between" }}>
+          <Text>
+            <Title>Temukan mentor yang berpengalaman</Title>
+            <Subtitle>
+              Mentor adalah orang yang memiliki kebijaksanaan dan ini merupakan
+              kombinasi dari pengetahuan dan pengalaman yang dimiliki. Mereka
+              adalah seseorang yang berada di suatu bidang dan berhasil pada apa
+              yang telah mereka lakukan.
+            </Subtitle>
+          </Text>
+
+          <StyledImage src={Gambar} fluid />
+        </Row>
       </Container>
-    </>
+    </div>
   );
 };
 
-export default Hero;
+export default Reason;

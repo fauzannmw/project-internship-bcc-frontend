@@ -1,6 +1,7 @@
 import React from "react";
 import { FaBars } from "react-icons/fa";
-import { ReactComponent as Logo } from "../../assets/Logo/LogoNav.svg";
+// import { ReactComponent as Logo } from "../../assets/Logo/LogoNav.svg";
+import Logo from "../../assets/Logo/mentoree-nav.png";
 import {
   Nav,
   NavbarContainer,
@@ -21,7 +22,8 @@ const Navbar = () => {
       <Nav>
         <NavbarContainer>
           <NavLogo to="/">
-            <Logo />
+            {/* <Logo /> */}
+            <img src={Logo} alt="Logo"/>
           </NavLogo>
           <HamburgerIcon>
             <FaBars size={30} />

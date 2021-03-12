@@ -1,9 +1,31 @@
-import React from "react";
-import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
-import { Title } from "./ContentStyle";
-import Image1 from "../../../assets/Image/avatar-image1.jpg";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Dropdown, Row, CardDeck } from "react-bootstrap";
+import { StyledDropDown, Title, StyledDropDownItem } from "./ContentStyle";
+import Mentoree from "../../../api/Mentoree";
+import Card from "../Card/Card";
+import _ from "lodash";
 
 const Content = () => {
+  const [categories, setCategories] = useState([]);
+  const [mentor, setMentor] = useState([]);
+  const [dropDown, setDropdown] = useState("");
+  const [dropDownName, setDropdownName] = useState("");
+  useEffect(() => {
+    const explore = async () => {
+      const res = await Mentoree.get("/category/categories");
+      console.log(res.data);
+      setCategories(res.data.data);
+      console.log(categories);
+    };
+    explore();
+  }, []);
+  useEffect(() => {
+    const explore = async () => {
+      const res = await Mentoree.get("/category/categories");
+      
+    };
+    explore();
+  }, [dropDown]);
   return (
     <div style={{ background: "#ecf0f1" }}>
       <Container fluid="md">
@@ -15,62 +37,36 @@ const Content = () => {
           </Col>
         </Row>
         <Row>
-          <Col md={3}>
-            <div className="text-center">
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={Image1} />
-                <Card.Body>
-                  <Card.Title>Nama Mentor</Card.Title>
-                  <Card.Text>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  </Card.Text>
-                  <Button>Lihat Detail</Button>
-                </Card.Body>
-              </Card>
+          <Col>
+            <div
+              className="text-center"
+              style={{ marginTop: "20px", marginBottom: "30px" }}
+            >
+              <StyledDropDown
+                id="dropdown-item-button"
+                title={dropDownName ? dropDownName : "Pilih kategori"}
+                variant="light"
+                onSelect={(e) => console.log(e)}
+              >
+                {categories.map((e) => {
+                  return (
+                    <StyledDropDownItem onClick= {() => {setDropdown(e.id);setDropdownName(e.name)} } key={e.id}>{e.name}</StyledDropDownItem>
+                  );
+                })}
+              </StyledDropDown>
             </div>
           </Col>
-          <Col md={3}>
-            <div className="text-center">
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={Image1} />
-                <Card.Body>
-                  <Card.Title>Nama Mentor</Card.Title>
-                  <Card.Text>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  </Card.Text>
-                  <Button>Lihat Detail</Button>
-                </Card.Body>
-              </Card>
-            </div>
-          </Col>
-          <Col md={3}>
-            <div className="text-center">
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={Image1} />
-                <Card.Body>
-                  <Card.Title>Nama Mentor</Card.Title>
-                  <Card.Text>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  </Card.Text>
-                  <Button>Lihat Detail</Button>
-                </Card.Body>
-              </Card>
-            </div>
-          </Col>
-          <Col md={3}>
-            <div className="text-center">
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={Image1} />
-                <Card.Body>
-                  <Card.Title>Nama Mentor</Card.Title>
-                  <Card.Text>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  </Card.Text>
-                  <Button>Lihat Detail</Button>
-                </Card.Body>
-              </Card>
-            </div>
-          </Col>
+        </Row>
+        <Row style={{ display: "flex" }}>
+          {mentor.map((a) => {
+            <Card name={a.name} desc={a.occupation} />;
+          })}
+          <CardDeck style={{ marginTop: "50px" }}>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </CardDeck>
         </Row>
       </Container>
     </div>

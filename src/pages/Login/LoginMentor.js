@@ -15,8 +15,13 @@ import {
   FormInputBox,
   FormInputButton,
 } from "./LoginStyle";
+import Mentoree from "../../api/Mentoree";
+import { useAuth } from "../../config/Auth";
+import { Redirect } from "react-router-dom";
+import jwt from "jsonwebtoken";
 
 const RegisterMentee = () => {
+  const { setAuthTokens } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onSubmit = async (e) => {
@@ -25,17 +30,33 @@ const RegisterMentee = () => {
     console.log(email);
     console.log(password);
     console.log("====================================");
-    const token = await fetch("", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }), // body data type must match "Content-Type" header
-    }).then((res) => res.json());
-    console.log(token);
+
+    await Mentoree.post("/mentor/login", {
+      email: email,
+      password: password,
+    }).then(async (res) => {
+      console.log(res);
+      res.status === 200 && setAuthTokens(await jwt.decode(res.data.token));
+      if (res.status == 200) {
+        console.log("Login Berhasil");
+        // return <Redirect to="/" />;
+        window.location.href = "/";
+      }
+    });
+
+    // Fetch Start
+    // const token = await fetch("", {
+    //   method: "POST", // *GET, POST, PUT, DELETE, etc.
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     email: email,
+    //     password: password,
+    //   }), // body data type must match "Content-Type" header
+    // }).then((res) => res.json());
+    // console.log(token);
+    // Fetch End
   };
   return (
     <div>

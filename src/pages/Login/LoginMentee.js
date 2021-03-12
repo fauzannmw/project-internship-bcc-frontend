@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/NavbarAuth";
 import { ReactComponent as Image } from "../../assets/Image/Mentee.svg";
@@ -15,8 +15,13 @@ import {
   FormInputBox,
   FormInputButton,
 } from "./LoginStyle";
+import Mentoree from "../../api/Mentoree";
+import { useAuth } from "../../config/Auth";
+import { Redirect } from "react-router-dom";
+import jwt from "jsonwebtoken";
 
 const LoginMentee = () => {
+  const { setAuthTokens, authTokens } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onSubmit = async (e) => {
@@ -25,18 +30,38 @@ const LoginMentee = () => {
     console.log(email);
     console.log(password);
     console.log("====================================");
-    const token = await fetch("", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }), // body data type must match "Content-Type" header
-    }).then((res) => res.json());
-    console.log(token);
+
+    await Mentoree.post("/user/login", {
+      email: email,
+      password: password,
+    }).then(async (res) => {
+      console.log(res);
+      res.status === 200 && setAuthTokens(await jwt.decode(res.data.token));
+      if (res.status == 200) {
+        console.log("Login Berhasil");
+        return <Redirect to="/" />;
+      }
+    });
+
+    // const token = await fetch(
+    //   "http://bcc-filkom-ub-elb-392908734.ap-southeast-1.elb.amazonaws.com:8091/user/login",
+    //   {
+    //     method: "POST", // *GET, POST, PUT, DELETE, etc.
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       email: email,
+    //       password: password,
+    //     }), // body data type must match "Content-Type" header
+    //   }
+    // ).then((res) => res.json());
+    // console.log(token);
   };
+
+  if (authTokens) {
+    return <Redirect to="/" />;
+  }
   return (
     <div>
       <Navbar />

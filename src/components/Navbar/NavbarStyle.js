@@ -1,11 +1,11 @@
 import styled from "styled-components";
+import { Image } from "react-bootstrap";
 import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 
 export const Nav = styled.nav`
   background: #ecf0f1;
   height: 80px;
-  /* margin-top: -80px; */
   display: flex;
   justify-content: center;
   padding: 0.5rem calc((100vw - 1000px) / 2); //
@@ -159,4 +159,15 @@ export const NavBtnLinkRegister = styled(LinkR)`
     background: #fff;
     color: #010606;
   }
+`;
+
+export const Balance = styled.div`
+  font-weight: 600;
+  font-size: 20px;
+  color: #e9a911;
+`;
+
+export const StyledImage = styled(Image)`
+  max-width: 40px;
+  margin-right: 5px;
 `;

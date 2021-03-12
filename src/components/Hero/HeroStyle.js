@@ -1,68 +1,89 @@
 import styled from "styled-components";
+import { Image } from "react-bootstrap";
 import { Link as LinkR } from "react-router-dom";
 
-export const Container = styled.div`
-  flex-grow: 1;
-  min-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #ecf0f1;
+export const Text = styled.div`
+  color: #34495e;
+  margin-left: 10px;
 
-  @media screen and (min-width: 800px) {
-    flex-direction: row;
-    justify-content: space-between;
+  @media screen and (max-width: 2000px) {
+    width: 60%;
+  }
+  @media screen and (max-width: 1400px) {
+    margin-top: 100px;
+    width: 45%;
+  }
+  @media screen and (max-width: 768px) {
+    width: 45%;
+    margin-top: 0;
+  }
+  @media screen and (max-width: 576px) {
+    width: 100%;
+    margin-right: 10px;
   }
 `;
 
-export const Text = styled.div`
-  flex-direction: row;
-  color: #34495e;
-  margin-left: 10px;
+export const StyledImage = styled(Image)`
+  @media screen and (max-width: 1400px) {
+    width: 45%;
+  }
+  @media screen and (max-width: 768px) {
+    width: 45%;
+  }
+  @media screen and (max-width: 576px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.div`
   width: 100%;
-  font-size: 10px;
-  text-align: center;
+  font-size: 48px;
+  font-weight: 900;
+  font-family: Montserrat;
 
-  @media screen and (min-width: 800px) {
-    width: 100%;
+  @media screen and (max-width: 2000px) {
+    width: 60%;
+    margin-top: 100px;
+  }
+
+  @media screen and (max-width: 1400px) {
+    width: 80%;
     margin-top: 0;
-    font-size: 48px;
-    font-weight: 900;
+    font-size: 38px;
+  }
+
+  @media screen and (max-width: 576px) {
+    width: 100%;
+    font-size: 32px;
     text-align: center;
-    font-family: Montserrat;
+    /* margin-top: 100px; */
   }
 `;
+
 export const Subtitle = styled.div`
   width: 100%;
   font-size: 8px;
-  text-align: center;
+  margin-top: 0;
+  font-size: 20px;
 
-  @media screen and (min-width: 800px) {
+  @media screen and (max-width: 576px) {
     width: 100%;
     margin-top: 0;
-    font-size: 20px;
+    font-size: 14px;
     text-align: center;
   }
-`;
-
-export const ImageContainer = styled.div`
-  width: 100%;
-  margin-top: 20px;
-
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 1400px) {
     width: 70%;
-    margin-top: 0;
-    text-align: left;
-    font-size: 25px;
   }
 `;
 
-export const Images = styled(LinkR)`
-  width: 80%;
-  @media screen and (min-width: 800px) {
-    width: 50%;
+export const Images = styled.img``;
+
+export const GambarStyled = styled.img`
+  @media screen and (max-width: 1400px) {
+    width: 100%;
+    margin-top: 0;
+    font-size: 12px;
+    text-align: center;
   }
 `;

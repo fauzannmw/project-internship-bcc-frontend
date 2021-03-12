@@ -42,11 +42,3 @@ export const Title = styled.p`
   margin-bottom: 20px;
   font-weight: bold;
 `;
-
-// export const Mentor = styled.div`
-//   flex-direction: column;
-
-//   @media screen and (max-width: 1000px) {
-//     display: none;
-//   }
-// `;
