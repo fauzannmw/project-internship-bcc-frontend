@@ -45,7 +45,6 @@ const Account = ({ formData, setForm, navigation }) => {
                   name="name"
                   value={name}
                   onChange={setForm}
-                  // required="true"
                 />
               </FormInputs>
               <FormInputs>

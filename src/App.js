@@ -6,7 +6,6 @@ import LoginMentee from "./pages/Login/LoginMentee";
 import LoginMentor from "./pages/Login/LoginMentor";
 import RegisterGateaway from "./pages/Register/RegisterGateaway";
 import RegisterMentee from "./pages/Register/Register Mentee/RegisterMentee";
-// import RegisterMentor from "./pages/Register/Register Mentor/RegisterMentor";
 import RegisterMentor from "./pages/Register/Register Mentor/MultiStepForm";
 import Home from "./pages/Home/Home";
 import AboutUs from "./pages/About Us/AboutUs";
@@ -27,7 +26,7 @@ function App() {
     localStorage.setItem("tokens", JSON.stringify(data));
     setAuthTokens(data);
   };
-  // console.log(authTokens);
+  console.log(authTokens);
   return (
     <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <Router>

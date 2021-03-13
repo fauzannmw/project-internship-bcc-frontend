@@ -51,18 +51,18 @@ const Occupation = ({ formData, setForm, navigation }) => {
               <FormInputs>
                 <FormInputTitle>Kategori Subjek</FormInputTitle>
                 <FormInputBox
-                  type="email"
-                  name="email"
-                  // value={email}
+                  type="text"
+                  name="category"
+                  value={category}
                   onChange={setForm}
                 />
               </FormInputs>
               <FormInputs>
                 <FormInputTitle>Metode pengajaran</FormInputTitle>
                 <FormInputBox
-                  type="password"
-                  name="password"
-                  // value={password}
+                  type="text"
+                  name="teachingMethod"
+                  value={teachingMethod}
                   onChange={setForm}
                 />
               </FormInputs>
