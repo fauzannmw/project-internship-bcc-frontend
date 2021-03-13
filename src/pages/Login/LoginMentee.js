@@ -42,24 +42,6 @@ const LoginMentee = () => {
         return <Redirect to="/" />;
       }
     });
-
-    // Fetch Start
-    // const token = await fetch(
-    //   "http://bcc-filkom-ub-elb-392908734.ap-southeast-1.elb.amazonaws.com:8091/user/login",
-    //   {
-    //     method: "POST", // *GET, POST, PUT, DELETE, etc.
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       email: email,
-    //       password: password,
-    //     }), // body data type must match "Content-Type" header
-    //   }
-    // ).then((res) => res.json());
-    // console.log(token);
-    // Fetch End
-    
   };
 
   if (authTokens) {

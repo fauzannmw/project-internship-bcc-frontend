@@ -51,22 +51,6 @@ const RegisterMentee = () => {
       }
     });
     // Axios End
-
-    // Fetch Start
-    // setMentor(res.data.mentor);
-    // const token = await fetch("", {
-    //   method: "POST", // *GET, POST, PUT, DELETE, etc.
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     email: email,
-    //     password: password,
-    //     name: name,
-    //   }), // body data type must match "Content-Type" header
-    // }).then((res) => res.json());
-    // console.log(token);
-    // Fetch End
   };
   return (
     <div>

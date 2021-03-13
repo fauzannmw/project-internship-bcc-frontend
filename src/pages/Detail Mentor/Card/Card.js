@@ -12,8 +12,8 @@ import {
   StyledButton,
 } from "./CardStyle";
 import StarIcon from "../../../assets/Profile/star-icon.svg";
-// import Image1 from "../../../assets/Profile/profile-image-1.png";
 import Image1 from "../../../assets/Image/avatar-image1.jpg";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../../config/Auth";
 
 const TopCard = () => {
@@ -72,7 +72,9 @@ const TopCard = () => {
                   </Icon>
                   <Text>
                     <Price>Rp 1.000.000/bulan</Price>
-                    <StyledButton>Pesan Sekarang</StyledButton>
+                    <Link to="/payment">
+                      <StyledButton>Pesan Sekarang</StyledButton>
+                    </Link>
                   </Text>
                 </Col>
               </Row>

@@ -43,20 +43,6 @@ const RegisterMentee = () => {
         window.location.href = "/";
       }
     });
-
-    // Fetch Start
-    // const token = await fetch("", {
-    //   method: "POST", // *GET, POST, PUT, DELETE, etc.
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     email: email,
-    //     password: password,
-    //   }), // body data type must match "Content-Type" header
-    // }).then((res) => res.json());
-    // console.log(token);
-    // Fetch End
   };
   return (
     <div>
