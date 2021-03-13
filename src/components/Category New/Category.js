@@ -64,8 +64,10 @@ const Category = () => {
               />
               <Card.Body>
                 <Text>
-                  <Subtitle>Gitar</Subtitle>
-                  <Desc>Bermain dan belajar gitar dengan mentor yang asik</Desc>
+                  <Subtitle>Musik</Subtitle>
+                  <Desc>
+                    Bermain dan belajar bermusik dengan mentor yang asik
+                  </Desc>
                 </Text>
               </Card.Body>
             </Card>
