@@ -60,7 +60,7 @@ const RegisterMentee = () => {
           </FormContentLeft>
           <FormContentRight>
             <Form noValidate>
-              <FormTitle>Lorem Ipsum</FormTitle>
+              <FormTitle>Login Mentor</FormTitle>
               <FormSubtitle>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </FormSubtitle>
